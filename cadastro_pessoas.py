@@ -1,23 +1,26 @@
-from datetime import datetime
+from datetime import datetime                                       # para trabalhar com datas
 now = datetime.now()
-import random 
-import xlwt
-import os   
+import random                                                       # para gerar numero aleatorio
+import xlwt                                                         # para trabalhar com arquivos excel
+import os                                                           # para usar o cler
 clear = lambda:os.system('clear')
 
 
-def cadastro_pessoas () :                                                       #funcao para cadastro de pessoas
+
+
+def cadastro_pessoas () :                                                     #funcao para cadastro de pessoas
     clear ();
-     
+    
+    
     continuar_cadastro = 0
     numero_alunos = 1
 
-    wb = xlwt.Workbook()                                                                 # definindo planilha
-    ws = wb.add_sheet('Controle academia FB')                                             # nomeando planilha 
+    wb = xlwt.Workbook()                                                        # definindo planilha
+    ws = wb.add_sheet('Controle academia FB')                                   # nomeando planilha 
     titles = ['Matricula','Nome','Telefone','Endereço','Numero','Bairro','CEP','CPF','Peso','Altura']       # titulos colunas
 
     
-    for i in range(len(titles)):                                                      # escrever titulos das colunas
+    for i in range(len(titles)):                                                # escrever titulos das colunas
 
         ws.write(0, i, titles[i])
 
@@ -25,16 +28,16 @@ def cadastro_pessoas () :                                                       
 
         print ("           Acadêmia Força Bruta    {}/{:0>2}/{}      {}:{} ".format(now.day,now.month,now.year,now.hour,now.minute))
         print("_______________________________________________________________________________")
-        matricula_aluno = round(random.randrange(1,3000))                           # gerando numero aleatorio p/ matricula aluno
+        matricula_aluno = round(random.randrange(1,3000))                        # gerando numero aleatorio p/ matricula aluno
         nome_aluno = str(input(" Nome  : "))
         telefone_aluno = str(input(" Telefone  : "))                             # entrada telefone aluno
-        endereco_aluno = str(input(" Endereco  : "))                              # entrada endereço aluno 
-        numero_endereco_aluno = int (input(" Numero : "))                           # entrada numero da casa
-        bairro_aluno = str (input(" Bairro : "))                                   # entrada bairro do aluno
-        cep_aluno = int (input(" CEP : "))                                         # entrada cep aluno
-        cpf_aluno = int(input(" CPF  : "))                                        # entrada cpf aluno
-        peso_aluno = float(input(" Peso : "))                                       # entrada peso aluno
-        altura_aluno = float(input(" Altura  : "))                                  # entrada altura aluno
+        endereco_aluno = str(input(" Endereco  : "))                             # entrada endereço aluno 
+        numero_endereco_aluno = int (input(" Numero : "))                        # entrada numero da casa
+        bairro_aluno = str (input(" Bairro : "))                                 # entrada bairro do aluno
+        cep_aluno = int (input(" CEP : "))                                       # entrada cep aluno
+        cpf_aluno = int(input(" CPF  : "))                                       # entrada cpf aluno
+        peso_aluno = float(input(" Peso : "))                                    # entrada peso aluno
+        altura_aluno = float(input(" Altura  : "))                               # entrada altura aluno
         numero_alunos = numero_alunos +1
         clear()
         print("_______________________________________________________________________________")
@@ -57,7 +60,7 @@ def cadastro_pessoas () :                                                       
      ##print(" IMC : {} matriula {} ".format(imc,matricula_aluno))  
 
      
-    wb.save('Controle Academia FB.xls')                                    # Salvando arquivo
+    wb.save('Controle Academia FB.xls')                                          # Salvando arquivo
 
 
 
